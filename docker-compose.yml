@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jupyterlab:
+    build: .
+    volumes:
+      - '/Users/samanvayk/Dev:/home/jovyan/work'
+    ports:
+      - '8000:8888'
+    environment:
+    - JUPYTER_ENABLE_LAB=yes
+    command: "start-notebook.sh \
+              --NotebookApp.password=${NOTEBOOK_PASSWORD}"
+    container_name: jupyterlab
